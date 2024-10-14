@@ -7,6 +7,6 @@ import ru.aston.entity.Publisher;
 
 public interface PublisherRepository extends JpaRepository<Publisher, Long> {
 
-    @EntityGraph(attributePaths = "books")
+    @EntityGraph(attributePaths = {"books", "books.author"})
     Optional<Publisher> findById(long id);
 }
